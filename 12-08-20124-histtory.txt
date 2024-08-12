@@ -1,0 +1,271 @@
+    1  lab start virtualization-deploy 
+    2  git clone https://github.com/anandpavithran/OPENSHIFT-VIRTUALIZATION-4-14
+    3  oc login     https://api.ocp4.example.com:6443 -u admin -p redhatocp
+    4  oc projects
+    5  oc project test500
+    6  oc get pod
+    7  oc get all
+    8  curl http://infosys-test500.apps.ocp4.example.com
+    9  curl https://infosys-test500.apps.ocp4.example.com
+   10  oc get deployment
+   11  oc edit deployment infosys
+   12  oc ge tpod
+   13  oc get pod
+   14  oc get all
+   15  cd OPENSHIFT-VIRTUALIZATION-4-14/
+   16  ls
+   17  cd 1-Install-OPV/
+   18  l
+   19  ls
+   20  oc get csv
+   21  oc get sub
+   22  oc get sub -A
+   23  oc get csv 
+   24  oc get csv  -A
+   25   oc explain csv
+   26  oc get installplan
+   27  oc get installplan -A
+   28  ls
+   29  vim namespace.yml 
+   30  oc projects | grep cnv
+   31  oc create -f namespace.yml 
+   32  oc projects | grep cnv
+   33  oc get all -n openshift-cnv
+   34  oc get operatorgroup
+   35  oc get operatorgroup -A
+   36  vim operatorgroup.yml 
+   37  oc create -f operatorgroup.yml 
+   38  oc get operatorgroup -A
+   39  oc get all -n openshift-cnv
+   40  ls
+   41  vim subscription.yml 
+   42  oc get all -n openshift-market-place
+   43  vim subscription.yml 
+   44  oc get all -n openshift-marketplace
+   45  vim subscription.yml 
+   46  oc create -f subscription.yml 
+   47  oc get sub -A
+   48  oc get all -n openshift-cnv
+   49  ls
+   50  vim hcooperator.yml 
+   51  oc create -f hcooperator.yml 
+   52  oc get all -n openshift-cnv
+   53  ls
+   54  oc project
+   55  oc get all
+   56  oc delete project test500
+   57  oc new-project test100
+   58  cd ..
+   59  ls
+   60  vim fedora40-direct-dv.yml 
+   61  oc set resources -h
+   62  oc get vm
+   63  cp fedora40-direct-dv.yml fedora40-direct-dv.yml 
+   64  cp fedora40-direct-dv.yml fedora40-direct-dv.yml-1 
+   65  vim fedora40-direct-dv.yml-1 
+   66  oc create -f fedora40-direct-dv.yml-1 
+   67  oc  get vm
+   68  oc get pod
+   69  oc get pvc
+   70  oc get pod
+   71  oc get vm
+   72  oc get pod
+   73  oc describe vm fedora2 
+   74  oc delete all --all
+   75  vim fedora40-direct-dv.yml
+   76  oc create -f fedora40-direct-dv.yml 
+   77  oc get pod
+   78  oc get pvc
+   79  oc get pod
+   80  oc get pod -w
+   81  oc get pvc
+   82  oc get pod -w
+   83  oc get pod 
+   84  oc get vm
+   85  oc describe vm fedora2 
+   86  oc get all
+   87  oc get vm
+   88  oc get vmi
+   89  ls
+   90  cd 2-Running-accessing-vm/
+   91  ls
+   92  ./virtctl console fedora2
+   93  oc get vm
+   94  oc edit vm fedora2 
+   95  oc delete vmi fedora2 
+   96  oc get vm
+   97  oc get vmi
+   98  cd ..
+   99  vim fedora40-direct-dv.yml
+  100  cd ..
+  101  cd OPENSHIFT-VIRTUALIZATION-4-14/
+  102  oc edit vm fedora2 
+  103  cd 2-Running-accessing-vm/
+  104  ./virtctl console fedora2
+  105  oc edit vm fedora2 
+  106  oc delete vm fedora2
+  107  oc get all
+  108  cd ..
+  109  ls
+  110  vim fedora40-direct-dv.yml-1 
+  111  vim fedora40-direct-dv.yml
+  112  oc create -f fedora40-direct-dv.yml 
+  113  oc get pod -w
+  114  oc get vm
+  115  oc get vmi
+  116  oc describe vmi fedora2 
+  117  oc describe vm fedora2 
+  118  oc logs virt-launcher-fedora2-wbxn8 
+  119  oc edit vm fedora2 
+  120  vim fedora40-direct-dv.yml
+  121  oc delete all --all
+  122  vim fedora40-direct-dv.yml
+  123  oc create -f fedora40-direct-dv.yml 
+  124  oc get pod -w
+  125  oc get vm
+  126  oc get vmi
+  127  oc edit vm fedora2 
+  128  oc describe vmi fedora2 
+  129  oc describe pod virt-launcher-fedora2-9w958 
+  130  oc describe vm fedora2 
+  131  oc logs virt-launcher-fedora2-9w958 
+  132  oc edit vm fedora2 
+  133  oc delete vmi fedora2 
+  134  oc edit vm fedora2
+  135  cd 2-Running-accessing-vm/
+  136  ./virtctl console fedora2
+  137  oc get vmi
+  138  oc get node
+  139  oc get pod -n openshift-cnv
+  140  oc get pod -n openshift-cnv -o wide | grep handler
+  141  OC GET VM
+  142  oc get vm
+  143  ./virtctl console fedora2
+  144  oc edit vm fedora2 
+  145  ls
+  146  cd ..
+  147  oc project
+  148  oc delete all --all
+  149  ls
+  150  vim fedora40-direct-dv.yml
+  151  oc create -f fedora40-direct-dv.yml 
+  152  oc get all
+  153  ls
+  154  oc get VM
+  155  oc get pod
+  156  oc get vm
+  157  oc get vmi
+  158  oc delete vmi fedora2
+  159  oc get vmi
+  160  oc create secreta
+  161  oc create secretas
+  162  oc create secrets
+  163  oc create secret
+  164  oc get secret
+  165  oc get nod
+  166  oc get node
+  167  oc new-project test500
+  168  oc new-app --name test1 --image quay.io/anandpavithran/infosys:2.0
+  169  oc get pod
+  170  oc get all
+  171  oc edit deployment test1
+  172  oc get all
+  173  oc get pod
+  174  oc delete pod test1-55c97fbbdf-snvzg 
+  175  oc get pod
+  176  oc get all
+  177  oc project test100
+  178  oc get vm
+  179  oc get vmi
+  180  oc get vm,vmi
+  181  oc get replicaset,deployment
+  182  oc get replicaset,deployment -n test500
+  183  oc get pod -n test500
+  184  oc project
+  185  oc get all
+  186  oc project test500
+  187  oc get all
+  188  oc delete deployment test1 
+  189  oc get all
+  190  oc project test100
+  191  oc get all
+  192  oc delete vmi fedora2 
+  193  oc get all
+  194  oc delete vm fedora2 
+  195  oc get all
+  196  oc create -f fedora40-direct-dv.yml 
+  197  oc get pod -w
+  198  oc get pvc
+  199  oc get pod
+  200  oc get pod -n openshift-cnv 
+  201  oc get pod -n openshift-cnv | grep virt
+  202  oc get pod -n openshift-authentication
+  203  oc whoami
+  204  vim fedora40-direct-dv.yml
+  205  oc debug node/master01
+  206  oc debug node/worker01
+  207  oc get vmi -o wide
+  208  oc get pod -n openshift-cnv -o wide | grep virt
+  209  oc project 
+  210  oc get pod
+  211  oc rsh virt-launcher-fedora2-tgrvc 
+  212  oc get pod
+  213  oc rsh virt-launcher-fedora2-tgrvc 
+  214  oc get pod,vm,vmi
+  215  oc edit vm fedora2 
+  216  oc get vmi 
+  217  oc edit vm fedora2 
+  218  oc delete vmi fedora2 
+  219  oc get pv
+  220  oc get pvc
+  221  vim fedora40-direct-dv.yml
+  222  oc get dv
+  223  oc edit dv fedora2-volume 
+  224  oc get sc
+  225  oc get vm,vmi
+  226  vim fedora40-direct-dv.yml
+  227  cd ..
+  228  cd OPENSHIFT-VIRTUALIZATION-4-14/2-Running-accessing-vm/
+  229  ./virtctl console fedora2
+  230  CD ..
+  231  cd ..
+  232  vim fedora40-direct-dv.yml
+  233  oc get all -n openshift-virtualization-os-images 
+  234  oc edit vm fedora2 
+  235  oc delete vm fedora2 
+  236  oc edit vm fedora2 
+  237  oc get all
+  238  vim fedora40-direct-dv.yml
+  239  oc create -f fedora40-direct-dv.yml 
+  240  oc project
+  241  oc get vm
+  242  oc get vmi
+  243  oc edit vm fedora2 
+  244  cd 2-Running-accessing-vm/
+  245  ./virtctl console fedora2
+  246  oc edit vm fedora2 
+  247  oc delete vmi fedora2 
+  248  oc edit vm fedora2 
+  249  oc get hyperconerged
+  250  oc get hyperconvergeds.hco.kubevirt.io 
+  251  oc get hyperconvergeds.hco.kubevirt.io  -n openshift-cnv
+  252  oc edit hyperconvergeds.hco.kubevirt.io  -n openshift-cnv
+  253  oc get pod
+  254  oc project test100
+  255  oc logs virt-launcher-fedora2-tncf5 
+  256  oc get pod
+  257  oc rsh virt-launcher-fedora2-tncf5 
+  258  ./virtctl fslist fedora2
+  259  ./virtctl guestosinfo fedora2
+  260  oc get clusterrole
+  261  oc get clusterrole | grep cluster-admin
+  262  oc create rolebinding view --clusterrole=view --user=developer -n test100
+  263  oc edit rolebinding cluster-admin
+  264  oc edit clusterrolebinding cluster-admin
+  265  oc edit clusterrole cluster-admin
+  266  oc create rolebinding edit --clusterrole=edit --user=developer -n test100
+  267  oc get rolebinding
+  268  CD
+  269  cd
+  270  history 
+  271  history > 12-08-20124-histtory.txt
